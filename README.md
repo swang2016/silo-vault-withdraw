@@ -58,8 +58,8 @@ See Examples section below for more usage examples.
 | `--rpc` | No | `https://rpc.soniclabs.com` | RPC endpoint URL for Sonic network (or via `SONIC_RPC` env var) |
 | `--owner` | No | From `EOA_ADDRESS` env var | Your EOA address (account that owns vault shares) |
 | `--private-key` | No | From `PRIVATE_KEY` env var | Your private key in hex format (0x prefixed, or via `PRIVATE_KEY` env var) |
-| `--rounds` | No | `1` | Number of times to execute the withdrawal |
-| `--pause-on-fail` | No | `5` | Seconds to wait before next round if pre-flight check fails |
+| `--rounds` | No | `1` | Number of times to attempt to execute the withdrawal |
+| `--pause-on-fail` | No | `5` | Seconds to wait before attempting to withdraw again |
 
 ### Withdrawal Amount (Choose One)
 
@@ -74,7 +74,7 @@ See Examples section below for more usage examples.
 |----------|-------------|
 | `--receiver` | Address to receive withdrawn assets (defaults to `--owner`) |
 | `--abi-file` | Path to custom vault ABI JSON file (uses minimal ERC-4626 ABI by default) |
-| `--gas-multiplier` | Multiply estimated gas by this factor (default: `2.0`) |
+| `--gas-multiplier` | Multiply estimated gas by this factor (default: `2.0`). Increase gas to increase chance of transaction going through |
 | `--gas-cap` | Hard cap for gas limit (default: `2,000,000`) |
 | `--priority-fee-wei` | Override `maxPriorityFeePerGas` in wei (uses node default if not set) |
 
@@ -105,7 +105,7 @@ python main.py \
   --rpc https://rpc.soniclabs.com \
 ```
 
-### Example 3: Multi-Round Withdrawal with Pause
+### Example 3: Multi-Round Withdrawal with Pause (what I ultimately used)
 
 <b>NOTE:</b> I used this method to withdraw my total deposited amount from the vault in multiple rounds. This will try withdrawing your specified amount (all or some other amount) multiple times with a pause between each try.
 
