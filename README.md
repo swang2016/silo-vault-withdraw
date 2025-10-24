@@ -4,6 +4,11 @@ A super quick and dirty vibe-coded script to withdraw assets from Silo vaults on
 
 Background on Main Street's stablecoin undercollateralization: https://x.com/Main_St_Finance/status/1976972055951147194
 
+## Support
+I vibe coded this in like an hour, I have no intention of supporting it, updating it, or helping you troubleshoot it. Your favorite LLM will probably be very useful.
+
+I'm simply sharing it in case it's useful to someone.
+
 <b>IMPORTANT:</b> This script is not audited and should be used at your own risk, it worked for me but I'm not responsible for any losses you may incur.
 
 ## Installation
@@ -119,11 +124,6 @@ python main.py \
   --rounds 3 \
   --pause-on-fail 10
 ```
-
-## Support
-I vibe coded this in like an hour, I have no intention of supporting it, updating it, or helping you troubleshoot it. Your favorite LLM will probably be very useful.
-
-I'm simply sharing it in case it's useful to someone.
 
 ## License
 
